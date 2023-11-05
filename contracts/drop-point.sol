@@ -31,7 +31,9 @@ contract SampahContract {
 
     // Fungsi untuk memvalidasi dan memasukkan data ke dalam blockchain
     function validateAndAddToBlockchain(uint _index) public {
-        require(_index < sampahPenampung.length, "Indeks tidak valid");
+        // Pastikan _index sesuai dengan panjang penampung
+        if (_index >= sampahPenampung.length) revert("Indeks tidak valid");
+        
         SampahData memory dataToValidate = sampahPenampung[_index];
         // Lakukan validasi data di sini sesuai dengan persyaratan Anda
         // Jika data valid, Anda dapat menyimpannya di blockchain
@@ -43,7 +45,8 @@ contract SampahContract {
 
     // Fungsi untuk menghapus data dari penampung
     function clearPenampung(uint _index) public {
-        require(_index < sampahPenampung.length, "Indeks tidak valid");
+        // Pastikan _index sesuai dengan panjang penampung
+        if (_index >= sampahPenampung.length) revert("Indeks tidak valid");
         delete sampahPenampung[_index];
     }
 
