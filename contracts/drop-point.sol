@@ -10,7 +10,7 @@ contract SampahContract {
         string jenisSampah;
         uint berat;
         string tanggal;
-        string dropPoint;
+        string[] dropPoints;
     }
 
     // Penampung data sementara sebelum dimasukkan ke blockchain
@@ -23,9 +23,9 @@ contract SampahContract {
         string memory _jenisSampah,
         uint _berat,
         string memory _tanggal,
-        string memory _dropPoint
+        string[] memory _dropPoints
     ) public {
-        SampahData memory newSampah = SampahData(_idSampah, _idUser, _jenisSampah, _berat, _tanggal, _dropPoint);
+        SampahData memory newSampah = SampahData(_idSampah, _idUser, _jenisSampah, _berat, _tanggal, _dropPoints);
         sampahPenampung.push(newSampah);
     }
 
@@ -39,8 +39,50 @@ contract SampahContract {
         // Jika data valid, Anda dapat menyimpannya di blockchain
         // Misalnya, Anda dapat menyimpannya di dalam struktur data baru di sini atau melakukan operasi lain yang diperlukan.
         // Setelah itu, Anda dapat memancarkan peristiwa untuk memberi tahu bahwa data telah dimasukkan.
-        emit SampahDataAdded(dataToValidate.idSampah, dataToValidate.idUser, dataToValidate.jenisSampah, dataToValidate.berat, dataToValidate.tanggal, dataToValidate.dropPoint);
+        emit SampahDataAdded(dataToValidate.idSampah, dataToValidate.idUser, dataToValidate.jenisSampah, dataToValidate.berat, dataToValidate.tanggal, dataToValidate.dropPoints);
         delete sampahPenampung[_index]; // Hapus data dari penampung
+    }
+
+    // Fungsi untuk mengirim sampah ke drop point A
+    function sendToDropPointA(uint _index) public {
+        // Pastikan _index sesuai dengan panjang penampung
+        if (_index >= sampahPenampung.length) revert("Indeks tidak valid");
+
+        SampahData storage dataToSend = sampahPenampung[_index];
+        for (uint i = 0; i < dataToSend.dropPoints.length; i++) {
+            if (keccak256(bytes(dataToSend.dropPoints[i])) == keccak256("A")) {
+                // Lakukan logika untuk mengirim sampah ke drop point A di sini
+                // Misalnya, Anda dapat mengupdate status di sini.
+            }
+        }
+    }
+
+    // Fungsi untuk mengirim sampah ke drop point B
+    function sendToDropPointB(uint _index) public {
+        // Pastikan _index sesuai dengan panjang penampung
+        if (_index >= sampahPenampung.length) revert("Indeks tidak valid");
+
+        SampahData storage dataToSend = sampahPenampung[_index];
+        for (uint i = 0; i < dataToSend.dropPoints.length; i++) {
+            if (keccak256(bytes(dataToSend.dropPoints[i])) == keccak256("B")) {
+                // Lakukan logika untuk mengirim sampah ke drop point B di sini
+                // Misalnya, Anda dapat mengupdate status di sini.
+            }
+        }
+    }
+
+    // Fungsi untuk mengirim sampah ke drop point C
+    function sendToDropPointC(uint _index) public {
+        // Pastikan _index sesuai dengan panjang penampung
+        if (_index >= sampahPenampung.length) revert("Indeks tidak valid");
+
+        SampahData storage dataToSend = sampahPenampung[_index];
+        for (uint i = 0; i < dataToSend.dropPoints.length; i++) {
+            if (keccak256(bytes(dataToSend.dropPoints[i])) == keccak256("C")) {
+                // Lakukan logika untuk mengirim sampah ke drop point C di sini
+                // Misalnya, Anda dapat mengupdate status di sini.
+            }
+        }
     }
 
     // Fungsi untuk menghapus data dari penampung
@@ -51,5 +93,5 @@ contract SampahContract {
     }
 
     // Event yang akan memancarkan data yang telah dimasukkan ke dalam blockchain
-    event SampahDataAdded(uint idSampah, uint idUser, string jenisSampah, uint berat, string tanggal, string dropPoint);
+    event SampahDataAdded(uint idSampah, uint idUser, string jenisSampah, uint berat, string tanggal, string[] dropPoints);
 }
