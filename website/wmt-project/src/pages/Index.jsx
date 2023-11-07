@@ -11,7 +11,7 @@ function Index() {
                 <div id="logo">
                   <h1>
                     {" "}
-                    <a href="index.html">Forest</a>
+                    <a href="/">WMT Project</a>
                   </h1>
                 </div>
                 <label htmlFor="drop" className="toggle">
@@ -20,7 +20,7 @@ function Index() {
                 <input type="checkbox" id="drop" />
                 <ul className="menu mt-lg-3 mt-2">
                   <li className="active">
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
                     <a href="#about">About</a>
@@ -50,9 +50,9 @@ function Index() {
           <div className="container">
             <div className="slide-info text-center">
               <div className="banner-top-grid">
-                <h4>Global Warming</h4>
+                <h4>Blockchain Based</h4>
               </div>
-              <h5>Save Forest And Save Earth</h5>
+              <h5>Waste Management and Tracking</h5>
               <div className="slide-info-txt">
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do
@@ -693,34 +693,7 @@ function Index() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 pricing-grid">
-                <div className="w3ls-bottom grid-two">
-                  <div className="table-txt-grid">
-                    <h4>SILVER</h4>
-                  </div>
-                  <div className="my-lg-4 my-3 price-w3layouts-table">
-                    <h4>
-                      {" "}
-                      <span className="sup">$</span>
-                      <span className="number-price">80</span> / month{" "}
-                    </h4>
-                  </div>
-                  <div className="price-list-txt">
-                    <ul className="count">
-                      <li>Lorem ipsum </li>
-                      <li>Dolor sit </li>
-                      <li>Consectetuer</li>
-                      <li>Adipiscing</li>
-                      <li>Lorem ipsum </li>
-                    </ul>
-                  </div>
-                  <div className="view-buttn mt-3">
-                    <a href="#contact" className=" scroll">
-                      Book Now
-                    </a>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </section>
@@ -1229,7 +1202,7 @@ function Index() {
           </div>
           {/* move icon */}
           <div className="txt-center">
-            <a href="#header" className="move-top txt-center mt-3" >Scroll Up</a>
+            <a href="#header" className="move-top txt-center mt-3" > </a>
           </div>
           {/*//move icon */}
         </footer>

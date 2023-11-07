@@ -2,7 +2,7 @@ import React from 'react';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Service from './pages/Service';
-import Home from './pages/Home';
+
 import Index from './pages/Index';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
