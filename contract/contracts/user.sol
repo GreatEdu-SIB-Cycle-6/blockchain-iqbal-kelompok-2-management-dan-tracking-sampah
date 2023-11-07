@@ -6,6 +6,5 @@ contract User {
     string private nama;
     string private jenis_kelamin;
     string private ttl;
-    
-    uint private no_hp;
+    string agama; 
 }
