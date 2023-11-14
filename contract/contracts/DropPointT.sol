@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract dropPoint {
+contract DropPointT is Ownable{
+
     uint256 private counterSampah;
 
     struct DataPenampungan {
@@ -45,23 +46,14 @@ contract dropPoint {
     uint256[] dropPoints
     );
 
-    modifier hanyaAdmin() {
-        require(msg.sender == admin, "Hanya admin yang dapat memanggil fungsi ini");
-        _;
-    }
 
-    modifier hanyaAdminUntukBersihkan() {
-        require(msg.sender == admin, "Hanya admin yang dapat memanggil fungsi ini");
-        _;
-    }
 
-    constructor(address _admin) {
-        admin = _admin;
-        user = msg.sender;
+
+    constructor() {
         counterSampah = 1;
     }
 
-        function jumlahsampah () external view returns (uint){
+    function jumlahsampah () external view returns (uint){
 
         if (counterSampah <= 1 ){
             return 0 ;
@@ -106,7 +98,7 @@ contract dropPoint {
         );
     }
 
-    function verifikasiDataSampah(uint256 _idSampah) public hanyaAdmin {
+    function verifikasiDataSampah(uint256 _idSampah) public onlyOwner {
      
         require(!dataPenampungan[_idSampah].sudahDivalidasi, "Data sudah divalidasi");
         
@@ -144,26 +136,23 @@ contract dropPoint {
         return sampahList[_idSampah];
     }
 
-    function bersihkanDataSampah(uint256 _idSampah) public hanyaAdminUntukBersihkan {
+    function bersihkanDataSampah(uint256 _idSampah) public onlyOwner {
         delete dataPenampungan[_idSampah];
     }
 
-    function kirimKeDropPointSelanjutnya(uint256 _idSampah) public hanyaAdmin {
+    function kirimKeDropPointSelanjutnya(uint256 _idSampah) public onlyOwner {
+
     require(dataPenampungan[_idSampah].sudahDivalidasi = true, "Data belum divalidasi");
     require(sampahList[_idSampah].dropPoints.length < 3, "Sampah telah mencapai batas maksimal drop point");
 
 
     uint256 lastDropPoint = sampahList[_idSampah].dropPoints[sampahList[_idSampah].dropPoints.length - 1];
 
-
     uint256 nextDropPoint = lastDropPoint + 1;
-
 
     sampahList[_idSampah].dropPoints.push(nextDropPoint);
 
-
     sampahList[_idSampah].waktu = block.timestamp;
-
 
     emit SampahDikirimKeDropPointSelanjutnya(
         sampahList[_idSampah].idPengguna,
@@ -173,6 +162,6 @@ contract dropPoint {
         sampahList[_idSampah].waktu,
         sampahList[_idSampah].dropPoints
     );
-}
+    }
 
 }

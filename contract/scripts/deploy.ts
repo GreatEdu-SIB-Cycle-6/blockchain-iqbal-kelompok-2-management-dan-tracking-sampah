@@ -1,10 +1,10 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const instance_dropPoint = await ethers.deployContract("dropPoint");
+  const instance_dropPoint = await ethers.deployContract("DropPointT");
   await instance_dropPoint.waitForDeployment();
   const addressDroppoint = await instance_dropPoint.getAddress();
-  console.log(`dropPoint: ${addressDroppoint}`);
+  console.log(`DropPointT: ${addressDroppoint}`);
 }
 
 
