@@ -1,23 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import ThemeSetting from "../components/ThemeSetting";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
+import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi";
+import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
+
 function WasteInput() {
+  const [idUser, setIdUser] = useState("");
+  const handleIdUser = (event: any) => setIdUser(event.target.value);
+
+  const [userName, setuserName] = useState("");
+  const handleuserName = (event: any) => setuserName(event.target.value);
+
+  const [userEmail, setuserEmail] = useState("");
+  const handleuserEmail = (event: any) => setuserEmail(event.target.value);
+
+  const [wasteType, setwasteType] = useState("");
+  const handlewasteType = (event: any) => setwasteType(event.target.value);
+
+  const [wasteWeight, setwasteWeight] = useState("");
+  const handlewasteWeight = (event: any) => setwasteWeight(event.target.value);
+
+  const [dropPoint, setdropPoint] = useState("");
+  const handleDropPoint = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setdropPoint(event.target.value);
+
+  const { address } = useAccount();
+
+  const contractDropPoinT = "0x61b8e76dC9ef8b7e07E4eCAab00d5f6a6f0D496F";
+
+  const { config: configWasteInput } = usePrepareContractWrite({
+    address: contractDropPoinT,
+    abi: DropPoinTAbi as any,
+    functionName: "inputDataPenampungan",
+    args: [
+      idUser,
+      userName,
+      userEmail,
+      wasteType,
+      wasteWeight,
+      dropPoint.split(",").map(Number),
+    ],
+  });
+  const { write: writeWasteInput } = useContractWrite(configWasteInput);
+
   return (
     <>
       <div className="container-scroller">
-        {/* partial:../../partials/_navbar.html */}
         <Navbar />
-        {/* partial */}
         <div className="container-fluid page-body-wrapper">
-          {/* partial:../../partials/_settings-panel.html */}
           <ThemeSetting />
-          {/* partial */}
-          {/* partial:../../partials/_sidebar.html */}
           <Sidebar />
-          {/* partial */}
           <div className="main-panel">
             <div className="content-wrapper">
               <div className="row">
@@ -32,7 +67,9 @@ function WasteInput() {
                         <div className="form-group">
                           <label htmlFor="exampleInputId1">ID</label>
                           <input
-                            type="number"
+                            value={idUser}
+                            onChange={handleIdUser}
+                            type="text"
                             className="form-control"
                             id="exampleInputId1"
                             placeholder="Id"
@@ -41,6 +78,8 @@ function WasteInput() {
                         <div className="form-group">
                           <label htmlFor="exampleInputName1">Name</label>
                           <input
+                            value={userName}
+                            onChange={handleuserName}
                             type="text"
                             className="form-control"
                             id="exampleInputName1"
@@ -52,6 +91,8 @@ function WasteInput() {
                             Email address
                           </label>
                           <input
+                            value={userEmail}
+                            onChange={handleuserEmail}
                             type="email"
                             className="form-control"
                             id="exampleInputEmail3"
@@ -59,8 +100,12 @@ function WasteInput() {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="exampleSelectWasteType">Waste Type</label>
+                          <label htmlFor="exampleSelectWasteType">
+                            Waste Type
+                          </label>
                           <select
+                            value={wasteType}
+                            onChange={handlewasteType}
                             className="form-control"
                             id="exampleSelectWasteType"
                           >
@@ -71,23 +116,13 @@ function WasteInput() {
                             <option>Other</option>
                           </select>
                         </div>
-
-                        {/* <div className="form-group">
-                          <label htmlFor="exampleInputWasteType">
-                            Waste Type
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="exampleInputWasteType"
-                            placeholder="Waste Type"
-                          />
-                        </div> */}
                         <div className="form-group">
                           <label htmlFor="exampleInputWasteWeight">
                             Waste Weight
                           </label>
                           <input
+                            value={wasteWeight}
+                            onChange={handlewasteWeight}
                             type="text"
                             className="form-control"
                             id="exampleInputWasteWeight"
@@ -95,17 +130,26 @@ function WasteInput() {
                           />
                         </div>
                         <div className="form-group">
-                          <label htmlFor="exampleTextarea1">Textarea</label>
-                          <textarea
+                          <label htmlFor="exampleInputDropPoint">
+                            Droppoint
+                          </label>
+                          <input
+                            value={dropPoint}
+                            onChange={handleDropPoint}
+                            type="text"
                             className="form-control"
-                            id="exampleTextarea1"
-                            rows={4}
-                            defaultValue={""}
+                            id="exampleInputDropPoint"
+                            placeholder="Masukkan nilai (bisa dipisahkan koma)"
                           />
                         </div>
-                        <button type="submit" className="btn btn-info mr-2">
+                        <button
+                          type="button"
+                          className="btn btn-info mr-2"
+                          onClick={writeWasteInput}
+                        >
                           Submit
                         </button>
+
                         <button className="btn btn-light">Cancel</button>
                       </form>
                     </div>
@@ -113,14 +157,9 @@ function WasteInput() {
                 </div>
               </div>
             </div>
-            {/* content-wrapper ends */}
-            {/* partial:../../partials/_footer.html */}
             <Footer />
-            {/* partial */}
           </div>
-          {/* main-panel ends */}
         </div>
-        {/* page-body-wrapper ends */}
       </div>
     </>
   );
