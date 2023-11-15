@@ -8,6 +8,7 @@
     "compile": "npx hardhat compile",
     "clean": "npx hardhat clean",
     "deploy": "npx hardhat deploy --tags DropPointT --network hardhat",
+    "deploybsc": "npx hardhat deploy --tags DropPointT --network bsctestnet",
     "simulate": "npx hardhat node",
     "push": "npx script scripts/tambahBuku.ts --network localhost",
     "get": "npx script scripts/getBook.ts --network localhost",
