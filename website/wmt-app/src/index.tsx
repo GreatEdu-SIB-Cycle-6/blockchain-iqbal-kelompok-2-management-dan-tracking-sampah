@@ -46,7 +46,7 @@ const { chains, publicClient } = configureChains(
 const projectId = String(process.env.REACT_APP_WALLET_CONNECT);
 
 const { connectors } = getDefaultWallets({
-  appName: 'Greatedu Studycases App',
+  appName: 'WMT Project',
   projectId,
   chains
 });
