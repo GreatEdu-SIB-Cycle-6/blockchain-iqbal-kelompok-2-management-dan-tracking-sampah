@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "clean": "npx hardhat clean",
+    "deploy": "npx hardhat deploy --tags DropPointT --network hardhat",
+    "simulate": "npx hardhat node",
+    "push": "npx script scripts/tambahBuku.ts --network localhost",
+    "get": "npx script scripts/getBook.ts --network localhost",
+    "test": "npx hardhat test"
+  },
+
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-waffle": "^2.0.6",
@@ -255,9 +266,7 @@
     "yargs-unparser": "^2.0.0",
     "yocto-queue": "^0.1.0"
   },
-  "scripts": {
-    "test": "mocha"
-  },
+
   "keywords": [],
   "author": ""
 }

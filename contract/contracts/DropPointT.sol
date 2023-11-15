@@ -46,9 +46,6 @@ contract DropPointT is Ownable{
     uint256[] dropPoints
     );
 
-
-
-
     constructor() {
         counterSampah = 1;
     }
@@ -62,8 +59,6 @@ contract DropPointT is Ownable{
             return counterSampah - 1;
         } 
     }
-
-
 
     function inputDataPenampungan(
         uint256 _idPengguna,
@@ -163,5 +158,4 @@ contract DropPointT is Ownable{
         sampahList[_idSampah].dropPoints
     );
     }
-
 }
