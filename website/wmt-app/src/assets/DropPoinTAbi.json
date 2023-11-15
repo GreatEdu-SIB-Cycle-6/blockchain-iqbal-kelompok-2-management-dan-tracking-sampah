@@ -1,1 +1,311 @@
-{"status":"1","message":"OK","result":"[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"}],\"name\":\"DataDivalidasi\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"dropPoints\",\"type\":\"uint256[]\"}],\"name\":\"SampahDikirimKeDropPointSelanjutnya\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"dropPoints\",\"type\":\"uint256[]\"}],\"name\":\"SampahDitambahkan\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"dropPoints\",\"type\":\"uint256[]\"}],\"name\":\"SampahDitambahkanKePenampung\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_idSampah\",\"type\":\"uint256\"}],\"name\":\"bersihkanDataSampah\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"dataPenampungan\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"namaPengguna\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"emailPengguna\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"sudahDivalidasi\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_idSampah\",\"type\":\"uint256\"}],\"name\":\"getDataSampahById\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"namaPengguna\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"emailPengguna\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"dropPoints\",\"type\":\"uint256[]\"}],\"internalType\":\"struct DropPointT.DataSampah\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_idPengguna\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_namaPengguna\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_emailPengguna\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_jenisSampah\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_berat\",\"type\":\"uint256\"},{\"internalType\":\"uint256[]\",\"name\":\"_dropPoints\",\"type\":\"uint256[]\"}],\"name\":\"inputDataPenampungan\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"jumlahsampah\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_idSampah\",\"type\":\"uint256\"}],\"name\":\"kirimKeDropPointSelanjutnya\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"sampahList\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"idPengguna\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"namaPengguna\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"emailPengguna\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"idSampah\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"jenisSampah\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"berat\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"waktu\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_idSampah\",\"type\":\"uint256\"}],\"name\":\"verifikasiDataSampah\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"}
+[
+  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idSampah",
+        "type": "uint256"
+      }
+    ],
+    "name": "DataDivalidasi",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idPengguna",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idSampah",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "jenisSampah",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "berat",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "waktu",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "dropPoints",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "SampahDikirimKeDropPointSelanjutnya",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idPengguna",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idSampah",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "jenisSampah",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "berat",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "waktu",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "dropPoints",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "SampahDitambahkan",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idPengguna",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "idSampah",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "jenisSampah",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "berat",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "waktu",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "dropPoints",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "SampahDitambahkanKePenampung",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idSampah", "type": "uint256" }
+    ],
+    "name": "bersihkanDataSampah",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "dataPenampungan",
+    "outputs": [
+      { "internalType": "uint256", "name": "idPengguna", "type": "uint256" },
+      { "internalType": "string", "name": "namaPengguna", "type": "string" },
+      { "internalType": "string", "name": "emailPengguna", "type": "string" },
+      { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
+      { "internalType": "string", "name": "jenisSampah", "type": "string" },
+      { "internalType": "uint256", "name": "berat", "type": "uint256" },
+      { "internalType": "uint256", "name": "waktu", "type": "uint256" },
+      { "internalType": "bool", "name": "sudahDivalidasi", "type": "bool" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idSampah", "type": "uint256" }
+    ],
+    "name": "getDataSampahById",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "idPengguna",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "namaPengguna",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "emailPengguna",
+            "type": "string"
+          },
+          { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
+          { "internalType": "string", "name": "jenisSampah", "type": "string" },
+          { "internalType": "uint256", "name": "berat", "type": "uint256" },
+          { "internalType": "uint256", "name": "waktu", "type": "uint256" },
+          {
+            "internalType": "uint256[]",
+            "name": "dropPoints",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct DropPointT.DataSampah",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idPengguna", "type": "uint256" },
+      { "internalType": "string", "name": "_namaPengguna", "type": "string" },
+      { "internalType": "string", "name": "_emailPengguna", "type": "string" },
+      { "internalType": "string", "name": "_jenisSampah", "type": "string" },
+      { "internalType": "uint256", "name": "_berat", "type": "uint256" },
+      {
+        "internalType": "uint256[]",
+        "name": "_dropPoints",
+        "type": "uint256[]"
+      }
+    ],
+    "name": "inputDataPenampungan",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "jumlahsampah",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idSampah", "type": "uint256" }
+    ],
+    "name": "kirimKeDropPointSelanjutnya",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "sampahList",
+    "outputs": [
+      { "internalType": "uint256", "name": "idPengguna", "type": "uint256" },
+      { "internalType": "string", "name": "namaPengguna", "type": "string" },
+      { "internalType": "string", "name": "emailPengguna", "type": "string" },
+      { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
+      { "internalType": "string", "name": "jenisSampah", "type": "string" },
+      { "internalType": "uint256", "name": "berat", "type": "uint256" },
+      { "internalType": "uint256", "name": "waktu", "type": "uint256" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_idSampah", "type": "uint256" }
+    ],
+    "name": "verifikasiDataSampah",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
