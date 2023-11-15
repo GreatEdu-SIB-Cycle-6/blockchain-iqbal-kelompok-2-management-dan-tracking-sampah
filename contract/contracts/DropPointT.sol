@@ -8,7 +8,7 @@ contract DropPointT is Ownable{
     uint256 private counterSampah;
 
     struct DataPenampungan {
-        uint256 idPengguna;
+        address userAddress;
         string namaPengguna;
         string emailPengguna;
         uint256 idSampah;
@@ -20,7 +20,7 @@ contract DropPointT is Ownable{
     }
 
     struct DataSampah {
-        uint256 idPengguna;
+        address userAddress;
         string namaPengguna;
         string emailPengguna;
         uint256 idSampah;
@@ -33,12 +33,12 @@ contract DropPointT is Ownable{
     mapping(uint256 => DataPenampungan) public dataPenampungan;
     mapping(uint256 => DataSampah) public sampahList;
 
-    event SampahDitambahkan(uint256 idPengguna, uint256 idSampah, string jenisSampah, uint256 berat, uint256 waktu, uint256[] dropPoints);
-    event SampahDitambahkanKePenampung(uint256 idPengguna, uint256 idSampah, string jenisSampah, uint256 berat, uint256 waktu, uint256[] dropPoints);
+    event SampahDitambahkan(address userAddress, uint256 idSampah, string jenisSampah, uint256 berat, uint256 waktu, uint256[] dropPoints);
+    event SampahDitambahkanKePenampung(address userAddress, uint256 idSampah, string jenisSampah, uint256 berat, uint256 waktu, uint256[] dropPoints);
     event DataDivalidasi(uint256 idSampah);
     
     event SampahDikirimKeDropPointSelanjutnya(
-    uint256 idPengguna,
+    address userAddress,
     uint256 idSampah,
     string jenisSampah,
     uint256 berat,
@@ -61,18 +61,19 @@ contract DropPointT is Ownable{
     }
 
     function inputDataPenampungan(
-        uint256 _idPengguna,
         string memory _namaPengguna,
         string memory _emailPengguna,
         string memory _jenisSampah,
         uint256 _berat,
         uint256[] memory _dropPoints
     ) public {
+        address userAddress= msg.sender; 
+
         uint256 idSampah = counterSampah;
         counterSampah++;
 
         dataPenampungan[idSampah] = DataPenampungan(
-            _idPengguna,
+            userAddress,
             _namaPengguna,
             _emailPengguna,
             idSampah,
@@ -84,7 +85,7 @@ contract DropPointT is Ownable{
         );
 
         emit SampahDitambahkanKePenampung(
-            dataPenampungan[idSampah].idPengguna,
+            dataPenampungan[idSampah].userAddress,
             idSampah,
             dataPenampungan[idSampah].jenisSampah,
             dataPenampungan[idSampah].berat,
@@ -93,12 +94,12 @@ contract DropPointT is Ownable{
         );
     }
 
-    function verifikasiDataSampah(uint256 _idSampah) public onlyOwner {
+    function verifikasiDataSampah(uint256 _idSampah) external onlyOwner {
      
         require(!dataPenampungan[_idSampah].sudahDivalidasi, "Data sudah divalidasi");
         
         sampahList[_idSampah] = DataSampah(
-            dataPenampungan[_idSampah].idPengguna,
+            dataPenampungan[_idSampah].userAddress,
             dataPenampungan[_idSampah].namaPengguna,
             dataPenampungan[_idSampah].emailPengguna,
             _idSampah,
@@ -116,7 +117,7 @@ contract DropPointT is Ownable{
         dataPenampungan[_idSampah].sudahDivalidasi = true;
         
         emit SampahDitambahkan(
-            dataPenampungan[_idSampah].idPengguna,
+            dataPenampungan[_idSampah].userAddress,
             _idSampah,
             dataPenampungan[_idSampah].jenisSampah,
             dataPenampungan[_idSampah].berat,
@@ -131,11 +132,11 @@ contract DropPointT is Ownable{
         return sampahList[_idSampah];
     }
 
-    function bersihkanDataSampah(uint256 _idSampah) public onlyOwner {
+    function bersihkanDataSampah(uint256 _idSampah) internal onlyOwner {
         delete dataPenampungan[_idSampah];
     }
 
-    function kirimKeDropPointSelanjutnya(uint256 _idSampah) public onlyOwner {
+    function kirimKeDropPointSelanjutnya(uint256 _idSampah) external onlyOwner {
 
     require(dataPenampungan[_idSampah].sudahDivalidasi = true, "Data belum divalidasi");
     require(sampahList[_idSampah].dropPoints.length < 3, "Sampah telah mencapai batas maksimal drop point");
@@ -150,7 +151,7 @@ contract DropPointT is Ownable{
     sampahList[_idSampah].waktu = block.timestamp;
 
     emit SampahDikirimKeDropPointSelanjutnya(
-        sampahList[_idSampah].idPengguna,
+        sampahList[_idSampah].userAddress,
         _idSampah,
         sampahList[_idSampah].jenisSampah,
         sampahList[_idSampah].berat,
