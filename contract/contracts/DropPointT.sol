@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DropPointT is Ownable{
 
-    uint256 private counterSampah;
+    uint256 private counterSampah=1;
 
     struct DataPenampungan {
         address userAddress;
@@ -45,10 +45,6 @@ contract DropPointT is Ownable{
     uint256 waktu,
     uint256[] dropPoints
     );
-
-    constructor() {
-        counterSampah = 1;
-    }
 
     function jumlahsampah () external view returns (uint){
 
@@ -116,6 +112,8 @@ contract DropPointT is Ownable{
         
         dataPenampungan[_idSampah].sudahDivalidasi = true;
         
+        emit DataDivalidasi(_idSampah);
+        
         emit SampahDitambahkan(
             dataPenampungan[_idSampah].userAddress,
             _idSampah,
@@ -125,7 +123,7 @@ contract DropPointT is Ownable{
             dataPenampungan[_idSampah].dropPoints
         );
         bersihkanDataSampah(_idSampah);
-        emit DataDivalidasi(_idSampah);
+        
     }
 
     function getDataSampahById(uint256 _idSampah) public view returns (DataSampah memory) {
