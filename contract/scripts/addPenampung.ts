@@ -1,41 +1,38 @@
-import chai from 'chai';
-import { DropPointT } from '../typechain';
 import { ethers } from 'hardhat';
-import { HardhatEthersSigner } from '@nomicfoundation/hardhat-ethers/signers';
+import { DropPointT } from '../typechain';
 
-const { expect } = chai;
+async function main() {
+  const library = await ethers.getContract<DropPointT>(
+    'DropPointT'
+  );
 
-describe('Testing DropPointT', async () => {
-  let Library: DropPointT;
-  let Admin: HardhatEthersSigner;
-  let NotAdmin: HardhatEthersSigner;
+  function formatTimestamp(timestamp: bigint): string {
+    const date = new Date(parseInt(timestamp.toString()) * 1000);
+    return date.toISOString();
+  }
 
-  beforeEach(async () => {
-    try {
-      const accounts = await ethers.getSigners();
-      Admin = accounts[0];
-      NotAdmin = accounts[1];
+  const addresses = await ethers.getSigners();
+  const inputAddress = addresses[1];
+  const [admin] = await ethers.getSigners();
 
-      Library = await (
-        await ethers.getContractFactory('DropPointT')
-      )
-        .connect(Admin)
-        .deploy();
+  const addPenampung = await library
+    .connect(inputAddress)
+    .inputDataPenampungan('XXXX', 'XXXX@mail', 'Plastic', 231,[1]);
 
-        console.log('Admin accessed inputDataPenampungan:', await Admin.getAddress());
-        console.log('NotAdmin accessed inputDataPenampungan:', await NotAdmin.getAddress());
-      
-    } catch (error) {
-      console.error('Error during setup:', error);
-      throw error;
-    }
+  await addPenampung.wait();
+  const detailDataPenampung = await library.dataPenampungan(1);
+  console.log('Berhasil Input Data Penampung Baru!');
+  console.log('Address :', detailDataPenampung[0].toString());
+  console.log('Nama :', detailDataPenampung[1]);
+  console.log('Email :', detailDataPenampung[2]);
+  console.log('ID Sampah :', detailDataPenampung[3].toString());
+  console.log('Jenis Sampah :', detailDataPenampung[4]);
+  console.log('Berat Sampah :', detailDataPenampung[5].toString());
+  console.log('Waktu :', formatTimestamp(detailDataPenampung[6]));
+  console.log('verify:', detailDataPenampung[7]);
+}
 
-
-  async function main() {
-    const Drop = await ethers.getContract<DropPointT>("DropPointT");
-    const [admins] = await ethers.getSigners();
-    const addPenampung = await Drop.connect(admins).inputDataPenampungan('Matahari', 'rifki@','bom', 23,[1] );
-    
-    
-    console.log("buku berhasil ditambahkan");
+main().catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
 });

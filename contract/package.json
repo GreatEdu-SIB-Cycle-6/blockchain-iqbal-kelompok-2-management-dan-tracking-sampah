@@ -10,7 +10,7 @@
     "deploy": "npx hardhat deploy --tags DropPointT --network hardhat",
     "deploybsc": "npx hardhat deploy --tags DropPointT --network bsctestnet",
     "simulate": "npx hardhat node",
-    "push": "npx script scripts/addPenampung.ts --network localhost",
+    "push": "npx hardhat run scripts/addPenampung.ts --network localhost",
     "get": "npx script scripts/getBook.ts --network localhost",
     "test": "npx hardhat test"
   },

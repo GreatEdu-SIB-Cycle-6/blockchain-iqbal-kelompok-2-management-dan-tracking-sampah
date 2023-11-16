@@ -51,12 +51,11 @@ describe('Testing DropPointT', async () => {
       [1]
     );
     
-    //console.log(NotAdmin)
   });
 
   it('Admin Ingin Verifikasi Transaksi', async () => {
-    await Library.connect(Admin).verifikasiDataSampah(1);
-    //console.log(Admin)
+    await Library.connect(NotAdmin).inputDataPenampungan("Fenti", "Fenti1234@gmail.com", "tes", 5,[1]);
+    await Library.connect(Admin).verifikasiDataSampah((3));
   });
 
   it('Jika Bukan Admin Ingin Verifikasi Transaksi', async () => {
