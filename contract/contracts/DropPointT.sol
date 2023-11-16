@@ -130,7 +130,7 @@ contract DropPointT is Ownable{
         return sampahList[_idSampah];
     }
 
-    function bersihkanDataSampah(uint256 _idSampah) internal onlyOwner {
+    function bersihkanDataSampah(uint256 _idSampah) public onlyOwner {
         delete dataPenampungan[_idSampah];
     }
 
