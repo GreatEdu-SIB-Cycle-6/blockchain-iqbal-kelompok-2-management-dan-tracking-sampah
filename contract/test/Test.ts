@@ -226,4 +226,20 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
         await(dropPointT.connect(user)).getDataSampahById(sampleId);
 
   });
+
+  it('Transfer Owner', async function () {
+    const adminAddress = await owner.getAddress();
+    const userAddress = await user.getAddress();
+  
+    // Simpan alamat baru pemilik (newOwner)
+    const newOwnerAddress = await user.getAddress();
+  
+    // Panggil fungsi untuk mentransfer kepemilikan ke newOwner
+    await (dropPointT.connect(owner)).transferOwnership(newOwnerAddress);
+  
+    // Periksa apakah kepemilikan sudah dialihkan ke newOwner
+    const contractOwner = await dropPointT.owner();
+    expect(contractOwner).to.equal(newOwnerAddress);
+  });
+
 });
