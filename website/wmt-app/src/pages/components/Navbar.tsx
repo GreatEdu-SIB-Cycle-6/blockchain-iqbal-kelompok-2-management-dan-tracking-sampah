@@ -8,10 +8,10 @@ function Navbar() {
             <nav className="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
           <div className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <Link className="navbar-brand brand-logo mr-5" to="/">
-              <img src="assets2/images/logo.svg" className="mr-2" alt="logo" />
+              {/* <img src="assets2/images/logo.svg" className="mr-2" alt="logo" /> */}
             </Link>
             <Link className="navbar-brand brand-logo-mini" to="/">
-              <img src="assets2/images/logo-mini.svg" className="mr-2" alt="logo" />
+              {/* <img src="assets2/images/logo-mini.svg" className="mr-2" alt="logo" /> */}
             </Link>
           </div>
           <div className="navbar-menu-wrapper d-flex align-items-center justify-content-end">
