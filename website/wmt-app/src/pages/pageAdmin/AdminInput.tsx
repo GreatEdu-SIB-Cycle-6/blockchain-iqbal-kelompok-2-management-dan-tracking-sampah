@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
 import ThemeSetting from "../components/ThemeSetting";
 import AdminSidebar from "../components/AdminSidebar";
 import Footer from "../components/Footer";
 
 import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi";
-import DropPoinTAbi from '../../assets/DropPoinTAbi.json';
+import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
 
-function AdminInput() {
-  const [idUser, setIdUser] = useState("");
-  const handleIdUser = (event: any) => setIdUser(event.target.value);
-
+function WasteInput() {
   const [userName, setuserName] = useState("");
   const handleuserName = (event: any) => setuserName(event.target.value);
 
@@ -23,20 +22,27 @@ function AdminInput() {
   const [wasteWeight, setwasteWeight] = useState("");
   const handlewasteWeight = (event: any) => setwasteWeight(event.target.value);
 
-  const [dropPoint, setdropPoint] = useState("");
-  const handleDropPoint = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setdropPoint(event.target.value);
+  const [dropPoint, setDropPoint] = useState("");
+
+  // useEffect untuk mengatur nilai dropPoint saat komponen dimuat
+  useEffect(() => {
+    setDropPoint("1");
+  }, []); // Empty dependency array ensures that this effect runs once after the initial render
+
+  // Handler untuk memperbarui nilai dropPoint
+  const handleDropPoint = (event: any) => {
+    setDropPoint(event.target.value);
+  };
 
   const { address } = useAccount();
 
-  const contractDropPoinT = "0x61b8e76dC9ef8b7e07E4eCAab00d5f6a6f0D496F";
+  const contractDropPoinT = "0x097ecb3C88e5cD27033a816683c28d779a1f7693";
 
   const { config: configWasteInput } = usePrepareContractWrite({
     address: contractDropPoinT,
     abi: DropPoinTAbi as any,
     functionName: "inputDataPenampungan",
     args: [
-      idUser,
       userName,
       userEmail,
       wasteType,
@@ -45,6 +51,31 @@ function AdminInput() {
     ],
   });
   const { write: writeWasteInput } = useContractWrite(configWasteInput);
+
+  const showNotification = () => {
+    toast.info("Wait Metamask Notification", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const handleSubmit = async () => {
+    showNotification(); // Memanggil notifikasi sebelum submit
+    try {
+      // Logika submit atau panggilan fungsi writeWasteInput
+      await writeWasteInput?.();
+
+      // Jika berhasil, Anda dapat memperbarui notifikasi jika diperlukan
+      toast.success("Submmit Success, Wait for Wallet Notification!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } catch (error) {
+      // Handle error jika diperlukan
+      console.error("Error during submission:", error);
+      toast.error("Error during submission", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
 
   return (
     <>
@@ -64,17 +95,6 @@ function AdminInput() {
                         Input the waste that you want to be dropped off to us
                       </p>
                       <form className="forms-sample">
-                        <div className="form-group">
-                          <label htmlFor="exampleInputId1">ID</label>
-                          <input
-                            value={idUser}
-                            onChange={handleIdUser}
-                            type="text"
-                            className="form-control"
-                            id="exampleInputId1"
-                            placeholder="Id"
-                          />
-                        </div>
                         <div className="form-group">
                           <label htmlFor="exampleInputName1">Name</label>
                           <input
@@ -142,10 +162,12 @@ function AdminInput() {
                             placeholder="Masukkan nilai (bisa dipisahkan koma)"
                           />
                         </div>
+                        <ToastContainer />
+
                         <button
                           type="button"
                           className="btn btn-info mr-2"
-                          onClick={writeWasteInput}
+                          onClick={handleSubmit}
                         >
                           Submit
                         </button>
@@ -165,4 +187,4 @@ function AdminInput() {
   );
 }
 
-export default AdminInput;
+export default WasteInput;
