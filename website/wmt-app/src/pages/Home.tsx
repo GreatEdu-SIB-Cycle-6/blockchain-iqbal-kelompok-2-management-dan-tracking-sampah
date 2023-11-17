@@ -72,7 +72,7 @@ function Index() {
                   </a>
                 </div>
                 <div className="view-buttn">
-                  <a href="#contact" className=" scroll">
+                  <a href="/dashboard" className=" scroll">
                     Join Us
                   </a>
                 </div>
@@ -429,7 +429,7 @@ function Index() {
         {/* //popup */}
         {/*//gallery */}
         {/*price */}
-        <section className="price py-lg-4 py-md-3 py-sm-3 py-3" id="price">
+        {/* <section className="price py-lg-4 py-md-3 py-sm-3 py-3" id="price">
           <div className="container py-lg-5 py-md-4 py-sm-4 py-3">
             <div className="title-tag mb-lg-5 mb-md-4 mb-sm-4 mb-3 pb-lg-3 pb-md-2">
               <div className="row">
@@ -533,7 +533,7 @@ function Index() {
               
             </div>
           </div>
-        </section>
+        </section> */}
         {/*//price*/}
         {/* clients */}
         <section className="clients py-lg-4 py-md-3 py-sm-3 py-3" id="clients">
@@ -846,7 +846,7 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Address</h6>
-                      <p>South Brisbane,Old 4101 Australia</p>
+                      {/* <p>South Brisbane,Old 4101 Australia</p> */}
                     </div>
                   </div>
                   <div className="row address-contact-form mt-lg-4 mt-3">
@@ -857,8 +857,8 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Phone</h6>
-                      <p>+ 1 (234) 567 8901</p>
-                      <p>+ 1 (000) 555 9901</p>
+                      {/* <p>+ 1 (234) 567 8901</p>
+                      <p>+ 1 (000) 555 9901</p> */}
                     </div>
                   </div>
                   <div className="row address-contact-form mt-lg-4 mt-3">
@@ -869,12 +869,12 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Email</h6>
-                      <p>
+                      {/* <p>
                         <a href="mailto:info@example.com">info@example.com</a>
                       </p>
                       <p>
                         <a href="mailto:info@example.com">info2@example.com</a>
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </div>

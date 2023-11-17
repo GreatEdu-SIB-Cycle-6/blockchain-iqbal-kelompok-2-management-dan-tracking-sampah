@@ -1,5 +1,4 @@
 [
-  { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
   {
     "anonymous": false,
     "inputs": [
@@ -37,9 +36,9 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "uint256",
-        "name": "idPengguna",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
       },
       {
         "indexed": false,
@@ -80,9 +79,9 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "uint256",
-        "name": "idPengguna",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
       },
       {
         "indexed": false,
@@ -123,9 +122,9 @@
     "inputs": [
       {
         "indexed": false,
-        "internalType": "uint256",
-        "name": "idPengguna",
-        "type": "uint256"
+        "internalType": "address",
+        "name": "userAddress",
+        "type": "address"
       },
       {
         "indexed": false,
@@ -174,7 +173,7 @@
     "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "dataPenampungan",
     "outputs": [
-      { "internalType": "uint256", "name": "idPengguna", "type": "uint256" },
+      { "internalType": "address", "name": "userAddress", "type": "address" },
       { "internalType": "string", "name": "namaPengguna", "type": "string" },
       { "internalType": "string", "name": "emailPengguna", "type": "string" },
       { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
@@ -195,9 +194,9 @@
       {
         "components": [
           {
-            "internalType": "uint256",
-            "name": "idPengguna",
-            "type": "uint256"
+            "internalType": "address",
+            "name": "userAddress",
+            "type": "address"
           },
           {
             "internalType": "string",
@@ -229,7 +228,6 @@
   },
   {
     "inputs": [
-      { "internalType": "uint256", "name": "_idPengguna", "type": "uint256" },
       { "internalType": "string", "name": "_namaPengguna", "type": "string" },
       { "internalType": "string", "name": "_emailPengguna", "type": "string" },
       { "internalType": "string", "name": "_jenisSampah", "type": "string" },
@@ -269,17 +267,10 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "name": "sampahList",
     "outputs": [
-      { "internalType": "uint256", "name": "idPengguna", "type": "uint256" },
+      { "internalType": "address", "name": "userAddress", "type": "address" },
       { "internalType": "string", "name": "namaPengguna", "type": "string" },
       { "internalType": "string", "name": "emailPengguna", "type": "string" },
       { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
