@@ -128,6 +128,7 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   
     // Use the latest counter value as the sampleId
     const sampleId = Number(latestCounter); 
+    
     // Try to call the function to verify data sampah with a non-owner account
     await expect(dropPointT.connect(user).verifikasiDataSampah(sampleId)).to.be.revertedWith(
       'Ownable: caller is not the owner'
@@ -241,5 +242,22 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
     const contractOwner = await dropPointT.owner();
     expect(contractOwner).to.equal(newOwnerAddress);
   });
+
+  it('Return All Data Penampung Owner And Non - Owner', async function (){
+    const adminAddress = await owner.getAddress();
+    const userAddress = await user.getAddress();
+
+    await(dropPointT.connect(owner)).getAllDataPenampungan;
+    await(dropPointT.connect(user)).getAllDataPenampungan;
+  });
+
+  it('Return All Data SampahList Owner And Non - Owner', async function (){
+    const adminAddress = await owner.getAddress();
+    const userAddress = await user.getAddress();
+
+
+    await(dropPointT.connect(owner)).getAllDataSampahList;
+    await(dropPointT.connect(user)).getAllDataSampahList;
+  }); 
 
 });
