@@ -55,7 +55,6 @@ contract DropPointT is Ownable{
             return counterSampah - 1;
         } 
     }
-
     function inputDataPenampungan(
         string memory _namaPengguna,
         string memory _emailPengguna,
@@ -157,4 +156,30 @@ contract DropPointT is Ownable{
         sampahList[_idSampah].dropPoints
     );
     }
+
+
+    function getAllDataPenampungan() external view returns (DataPenampungan[] memory) {
+        DataPenampungan[] memory allData = new DataPenampungan[](counterSampah - 1);
+
+        uint256 idSampah = 1;
+        while (idSampah < counterSampah) {
+            allData[idSampah - 1] = dataPenampungan[idSampah];
+            idSampah++;
+        }
+
+        return allData;
+    }
+
+    function getAllDataSampahList() external view returns (DataSampah[] memory) {
+        DataSampah[] memory allDataList = new DataSampah[](counterSampah - 1);
+
+        uint256 idSampah = 1;
+        while (idSampah < counterSampah) {
+            allDataList[idSampah - 1] = sampahList[idSampah];
+            idSampah++;
+        }
+
+        return allDataList;
+    }
+
 }
