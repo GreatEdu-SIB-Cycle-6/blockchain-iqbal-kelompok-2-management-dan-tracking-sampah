@@ -5,10 +5,12 @@ import { HardhatEthersSigner } from '@nomicfoundation/hardhat-ethers/signers';
 import { DropPointT } from '../typechain';
 import { log } from 'console';
 
-describe('DropPointT Contract - inputDataPenampungan', function () {
+describe('DropPointT Contract - TesTing', function () {
   let owner: HardhatEthersSigner;
   let user: HardhatEthersSigner;
   let dropPointT: DropPointT;
+
+  
 
   beforeEach(async function () {
     try {
@@ -26,8 +28,8 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
     }
   });
 
+  
   it('Owner Input Transaksi Data Penampung', async function () {
-    const adminAddress = await owner.getAddress();
 
     // Simulate sample data for input
     const sampleData = {
@@ -49,7 +51,6 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Non - Owner Input Transaksi Data Penampung', async function () {
-    const userAddress = await user.getAddress();
 
     // Simulate sample data for input by a user
     const sampleData = {
@@ -72,7 +73,6 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Owner Verifikasi Transaksi', async function () {
-    const adminAddress = await owner.getAddress();
 
   // Simulate sample data for input by a user
   const sampleData = {
@@ -103,7 +103,6 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Non - Owner Verifikasi Transaksi', async function () {
-    const userAddress = await user.getAddress();
 
     // Simulate sample data for input by a user
     const sampleData = {
@@ -136,7 +135,6 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Owner kirim Ke drop point selanjutnya', async function () {
-    const adminAddress = await owner.getAddress();
 
     const sampleData = {
       namaPengguna: 'Admin',
@@ -169,8 +167,6 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Non - Owner kirim Ke drop point selanjutnya', async function () {
-    const userAddress = await user.getAddress();
-    const adminAddress = await owner.getAddress();
 
     const dataContoh = {
       namaPengguna: 'Pengguna Lain',
@@ -202,9 +198,67 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
     );
   });
 
-  it('Owner Get Data SampahList', async function () {
-    const adminAddress = await owner.getAddress();
+  it('Owner Delete Penampung By - ID Sampah',async function name() {
 
+      const dataContoh = {
+      namaPengguna: 'Pengguna Lain',
+      emailPengguna: 'lainnya@example.com',
+      jenisSampah: 'Logam',
+      berat: 20,
+      dropPoints: [1],
+    };
+
+      await dropPointT.inputDataPenampungan(
+      dataContoh.namaPengguna,
+      dataContoh.emailPengguna,
+      dataContoh.jenisSampah,
+      dataContoh.berat,
+      dataContoh.dropPoints
+    );
+
+    // Dapatkan nilai counter terbaru untuk menentukan sampleId
+    const latestCounter = await dropPointT.jumlahsampah();
+  
+    // Gunakan nilai counter terbaru sebagai sampleId
+    const sampleId = Number(latestCounter);
+
+    await dropPointT.connect(owner).bersihkanDataSampah(sampleId);
+    
+  });
+
+  it('Non - Owner Delete Penampung By - ID Sampah',async function name() {
+
+    const dataContoh = {
+    namaPengguna: 'akuDia',
+    emailPengguna: 'PPPP@example.com',
+    jenisSampah: 'Logam',
+    berat: 300,
+    dropPoints: [1],
+  };
+
+    await dropPointT.inputDataPenampungan(
+    dataContoh.namaPengguna,
+    dataContoh.emailPengguna,
+    dataContoh.jenisSampah,
+    dataContoh.berat,
+    dataContoh.dropPoints
+  );
+
+  // Dapatkan nilai counter terbaru untuk menentukan sampleId
+  const latestCounter = await dropPointT.jumlahsampah();
+
+  // Gunakan nilai counter terbaru sebagai sampleId
+  const sampleId = Number(latestCounter);
+
+  // Panggil fungsi untuk mengirim data ke drop point selanjutnya oleh admin
+  await expect(dropPointT.connect(user).bersihkanDataSampah(sampleId)).to.be.revertedWith(
+    'Ownable: caller is not the owner'
+  );
+  
+})
+
+  it('Owner And Non - Owner Get Data SampahList', async function () {
+    
         // Dapatkan nilai counter terbaru untuk menentukan sampleId
         const latestCounter = await dropPointT.jumlahsampah();
   
@@ -212,25 +266,13 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
         const sampleId = Number(latestCounter);
 
         await(dropPointT.connect(owner)).getDataSampahById(sampleId);
-
-  });
-
-  it('Non - Owner Get Data SampahList', async function () {
-    const userAddress = await user.getAddress();
-
-        // Dapatkan nilai counter terbaru untuk menentukan sampleId
-        const latestCounter = await dropPointT.jumlahsampah();
-  
-        // Gunakan nilai counter terbaru sebagai sampleId
-        const sampleId = Number(latestCounter);
-
         await(dropPointT.connect(user)).getDataSampahById(sampleId);
 
   });
 
+
   it('Transfer Owner', async function () {
-    const adminAddress = await owner.getAddress();
-    const userAddress = await user.getAddress();
+
   
     // Simpan alamat baru pemilik (newOwner)
     const newOwnerAddress = await user.getAddress();
@@ -244,20 +286,24 @@ describe('DropPointT Contract - inputDataPenampungan', function () {
   });
 
   it('Return All Data Penampung Owner And Non - Owner', async function (){
-    const adminAddress = await owner.getAddress();
-    const userAddress = await user.getAddress();
 
-    await(dropPointT.connect(owner)).getAllDataPenampungan;
-    await(dropPointT.connect(user)).getAllDataPenampungan;
+    await(dropPointT.connect(owner)).getAllDataPenampungan();
+    await(dropPointT.connect(user)).getAllDataPenampungan();
+
+
   });
 
   it('Return All Data SampahList Owner And Non - Owner', async function (){
-    const adminAddress = await owner.getAddress();
-    const userAddress = await user.getAddress();
 
-
-    await(dropPointT.connect(owner)).getAllDataSampahList;
-    await(dropPointT.connect(user)).getAllDataSampahList;
+    await(dropPointT.connect(owner)).getAllSampahList();
+    await(dropPointT.connect(user)).getAllSampahList();
   }); 
+
+  it('Get Data Counter Sampah Owner And Non - Owner', async function (){
+
+    await(dropPointT.connect(owner)).jumlahsampah();
+    await(dropPointT.connect(user)).jumlahsampah();
+
+  });
 
 });
