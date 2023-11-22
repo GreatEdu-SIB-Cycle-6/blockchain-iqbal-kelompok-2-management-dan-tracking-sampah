@@ -30,7 +30,7 @@ contract DropPointT is Ownable{
         uint256[] dropPoints;
     }
 
-    mapping(uint256 => DataPenampungan) public dataPenampungan;
+    mapping(uint256 => DataPenampungan) private dataPenampungan;
     mapping(uint256 => DataSampah) public sampahList;
 
     event SampahDitambahkan(address userAddress, uint256 idSampah, string jenisSampah, uint256 berat, uint256 waktu, uint256[] dropPoints);
@@ -55,6 +55,7 @@ contract DropPointT is Ownable{
             return counterSampah - 1;
         } 
     }
+
     function inputDataPenampungan(
         string memory _namaPengguna,
         string memory _emailPengguna,
@@ -117,7 +118,7 @@ contract DropPointT is Ownable{
             dataPenampungan[_idSampah].userAddress,
             _idSampah,
             dataPenampungan[_idSampah].jenisSampah,
-            dataPenampungan[_idSampah].berat,
+            dataPenampungan[_idSampah].berat,   
             dataPenampungan[_idSampah].waktu,
             dataPenampungan[_idSampah].dropPoints
         );
@@ -130,6 +131,7 @@ contract DropPointT is Ownable{
     }
 
     function bersihkanDataSampah(uint256 _idSampah) public onlyOwner {
+        require(dataPenampungan[_idSampah].sudahDivalidasi = true, "Data belum divalidasi");
         delete dataPenampungan[_idSampah];
     }
 
@@ -137,7 +139,6 @@ contract DropPointT is Ownable{
 
     require(dataPenampungan[_idSampah].sudahDivalidasi = true, "Data belum divalidasi");
     require(sampahList[_idSampah].dropPoints.length < 3, "Sampah telah mencapai batas maksimal drop point");
-
 
     uint256 lastDropPoint = sampahList[_idSampah].dropPoints[sampahList[_idSampah].dropPoints.length - 1];
 
@@ -157,29 +158,48 @@ contract DropPointT is Ownable{
     );
     }
 
+     function getAllDataPenampungan() external view returns (DataPenampungan[] memory) {
+        uint256 validDataCount = 0;
 
-    function getAllDataPenampungan() external view returns (DataPenampungan[] memory) {
-        DataPenampungan[] memory allData = new DataPenampungan[](counterSampah - 1);
+        for (uint256 i = 1; i < counterSampah; i++) {
+            if (dataPenampungan[i].userAddress != address(0)) {
+                validDataCount++;
+            }
+        }
 
-        uint256 idSampah = 1;
-        while (idSampah < counterSampah) {
-            allData[idSampah - 1] = dataPenampungan[idSampah];
-            idSampah++;
+        DataPenampungan[] memory allData = new DataPenampungan[](validDataCount);
+
+        uint256 dataIndex = 0;
+        for (uint256 i = 1; i < counterSampah; i++) {
+            if (dataPenampungan[i].userAddress != address(0)) {
+                allData[dataIndex] = dataPenampungan[i];
+                dataIndex++;
+            }
         }
 
         return allData;
     }
 
-    function getAllDataSampahList() external view returns (DataSampah[] memory) {
-        DataSampah[] memory allDataList = new DataSampah[](counterSampah - 1);
+    function getAllSampahList() external view returns (DataSampah[] memory) {
+        uint256 validDataCount = 0;
 
-        uint256 idSampah = 1;
-        while (idSampah < counterSampah) {
-            allDataList[idSampah - 1] = sampahList[idSampah];
-            idSampah++;
+        for (uint256 i = 1; i < counterSampah; i++) {
+            if (sampahList[i].userAddress != address(0)) {
+                validDataCount++;
+            }
         }
 
-        return allDataList;
-    }
+        DataSampah[] memory allData = new DataSampah[](validDataCount);
 
+        uint256 dataIndex = 0;
+        for (uint256 i = 1; i < counterSampah; i++) {
+            if (sampahList[i].userAddress != address(0)) {
+                allData[dataIndex] = sampahList[i];
+                dataIndex++;
+            }
+        }
+
+        return allData;
+        
+    }
 }
