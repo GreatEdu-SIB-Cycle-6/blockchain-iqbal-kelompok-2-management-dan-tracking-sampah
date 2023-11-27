@@ -66,6 +66,18 @@ function AdminSidebar() {
               <span className="menu-title">Tracking</span>
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              className="nav-link"
+              to="/admin-change"
+              onClick={() => {
+                window.location.href = "/admin-change";
+              }}
+            >
+              <i className="icon-repeat menu-icon" />
+              <span className="menu-title">Change Admin</span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
