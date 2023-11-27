@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
@@ -11,21 +11,37 @@ import {
   usePrepareContractWrite,
   useContractWrite,
 } from "wagmi";
-
 import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
+import { useNavigate } from "react-router-dom";
+
+
 function AdminSendWaste() {
+  const contractDropPoinT = "0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6";
+  const navigate = useNavigate();
+  const { address, isDisconnected } = useAccount();
+
+  const { data: admin } = useContractRead({
+    address: contractDropPoinT,
+    abi: DropPoinTAbi as any,
+    functionName: "owner",
+  });
+  console.log("admin:", admin);
+
+  useEffect(() => {
+    if (isDisconnected === true) {
+      navigate('/alert');
+    }
+  }, [isDisconnected, navigate]);
+
+  useEffect(() => {
+    if (address !== admin) {
+      navigate('/forbidden');
+    }
+  }, [address, admin, navigate]);
+  
     const [wasteId, setwasteId] = useState("");
     const handlewasteId = (event: any) =>
     setwasteId(event.target.value);
-
-  const { address } = useAccount();
-  const contractDropPoinT = "0x097ecb3C88e5cD27033a816683c28d779a1f7693";
-  const { data: getWasteData } = useContractRead({
-    address: contractDropPoinT,
-    abi: DropPoinTAbi as any,
-    functionName: "getDataSampahById",
-    args: [wasteId],
-  });
 
   const { config: configSendWaste } = usePrepareContractWrite({
     address: contractDropPoinT,
@@ -35,6 +51,11 @@ function AdminSendWaste() {
   });
   const { write: writeWasteId } = useContractWrite(configSendWaste);
 
+  const { data: getWasteData } = useContractRead({
+    address: contractDropPoinT,
+    abi: DropPoinTAbi as any,
+    functionName: "getAllSampahList",
+  });
   console.log("getWasteData:", getWasteData);
   console.log("getWasteData result:", getWasteData);
 
@@ -80,6 +101,45 @@ function AdminSendWaste() {
                         Input the Waste ID that you want to Send
                       </p>
                       <form className="forms-sample">
+                      <div className="table-responsive">
+                        <table
+                          className="display expandable-table"
+                          style={{ width: "100%" }}
+                        >
+                          <thead>
+                            <tr>
+                              <th>User Address</th>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Waste ID</th>
+                              <th>Waste Type</th>
+                              <th>Waste Weight</th>
+                              <th>Date</th>
+                              <th>Droppoint</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {getWasteData &&
+                              getWasteData.map((data, index) => (
+                                <tr key={index}>
+                                  <td>{data.userAddress}</td>
+                                  <td>{data.namaPengguna}</td>
+                                  <td>{data.emailPengguna}</td>
+                                  <td>{data.idSampah.toString()}</td>
+                                  <td>{data.jenisSampah}</td>
+                                  <td>{data.berat.toString()}</td>
+                                  <td>
+                                    {data.waktu.toString() &&
+                                      new Date(
+                                        Number(data.waktu.toString()) * 1000
+                                      ).toLocaleString()}
+                                  </td>
+                                  <td>{data.dropPoints.toString()}</td>
+                                </tr>
+                              ))}
+                          </tbody>
+                        </table>
+                      </div>
                         <div className="form-group">
                           <label htmlFor="exampleInputId1">Waste ID</label>
                           <input
@@ -88,74 +148,11 @@ function AdminSendWaste() {
                             type="text"
                             className="form-control"
                             id="wasteTracking"
-                            placeholder="Waste Tracking"
+                            placeholder="Input the Waste ID that you want to Send"
                           />
                           
                         </div>
-                        <div className="table-responsive">
-                          <table
-                            className="display expandable-table"
-                            style={{ width: "100%" }}
-                          >
-                            <thead>
-                              <tr>
-                                <th>User Address</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Waste ID</th>
-                                <th>Waste Type</th>
-                                <th>Waste Weight</th>
-                                <th>Timestamp</th>
-                                <th>Droppoint</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {getWasteData ? (
-                                Array.isArray(getWasteData) ? (
-                                  getWasteData.map((data, index) => (
-                                    <tr key={index}>
-                                      <td>{(data as any).userAddress || 'N/A'}</td>
-                                      <td>{(data as any).namaPengguna || 'N/A'}</td>
-                                      <td>{(data as any).emailPengguna || 'N/A'}</td>
-                                      <td>{(data as any).idSampah || 'N/A'}</td>
-                                      <td>{(data as any).jenisSampah || 'N/A'}</td>
-                                      <td>{Number((data as any).berat) || 'N/A'}</td>
-                                      <td>
-                                        {new Date(
-                                          Number((data as any).waktu) * 1000
-                                        ).toLocaleString() || 'N/A'}
-                                      </td>
-                                      <td>
-                                        {(data as any).dropPoints.join(", ")}
-                                      </td>
-                                    </tr>
-                                  ))
-                                ) : (
-                                    <tr>
-                                    <td>{(getWasteData as any).userAddress || 'N/A'}</td>
-                                    <td>{(getWasteData as any).namaPengguna || 'N/A'}</td>
-                                    <td>{(getWasteData as any).emailPengguna || 'N/A'}</td>
-                                    <td>{Number((getWasteData as any).idSampah) || 'N/A'}</td>
-                                    <td>{(getWasteData as any).jenisSampah || 'N/A'}</td>
-                                    <td>{Number((getWasteData as any).berat) || 'N/A'}</td>
-                                    <td>
-                                      {((getWasteData as any).waktu &&
-                                        new Date(
-                                          Number((getWasteData as any).waktu) * 1000
-                                        ).toLocaleString()) || 'N/A'}
-                                    </td>
-                                    <td>
-                                      {(getWasteData as any).dropPoints
-                                        ? (getWasteData as any).dropPoints.join(', ')
-                                        : 'N/A'}
-                                    </td>
-                                  </tr>
-                                  
-                                )
-                              ) : null}
-                            </tbody>
-                          </table>
-                        </div>
+                       
                         <ToastContainer />
                         <button
                           type="button"
