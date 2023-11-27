@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import ThemeSetting from "../components/ThemeSetting";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useAccount, useContractRead } from "wagmi";
-
 import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
+import { useNavigate } from "react-router-dom";
+
 function Tracking() {
   const [wasteTracking, setwasteTracking] = useState("");
   const handlewasteTracking = (event: any) =>
     setwasteTracking(event.target.value);
-
-  const { address } = useAccount();
-  const contractDropPoinT = "0x097ecb3C88e5cD27033a816683c28d779a1f7693";
+  const contractDropPoinT = "0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6";
+  const { isDisconnected } = useAccount();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isDisconnected === true) {
+      navigate('/alert');
+    }
+  }, [isDisconnected, navigate]);
   const { data: getWasteData } = useContractRead({
     address: contractDropPoinT,
     abi: DropPoinTAbi as any,
@@ -21,6 +28,14 @@ function Tracking() {
   });
   console.log("getWasteData:", getWasteData);
   console.log("getWasteData result:", getWasteData);
+
+  const { data: getWasteDataList } = useContractRead({
+    address: contractDropPoinT,
+    abi: DropPoinTAbi as any,
+    functionName: "getAllSampahList",
+  });
+  console.log("getWasteDataList:", getWasteDataList);
+  console.log("getWasteDataList result:", getWasteDataList);
 
   return (
     <>
@@ -48,7 +63,7 @@ function Tracking() {
                             type="text"
                             className="form-control"
                             id="exampleInputId1"
-                            placeholder="Id"
+                            placeholder="Track By ID"
                           />
                         </div>
                         <div className="table-responsive">
@@ -64,7 +79,7 @@ function Tracking() {
                                 <th>Waste ID</th>
                                 <th>Waste Type</th>
                                 <th>Waste Weight</th>
-                                <th>Timestamp</th>
+                                <th>Date</th>
                                 <th>Droppoint</th>
                               </tr>
                             </thead>
@@ -90,7 +105,7 @@ function Tracking() {
                                     </tr>
                                   ))
                                 ) : (
-                                  <tr>
+                                    <tr>
                                     <td>{(getWasteData as any).userAddress || 'N/A'}</td>
                                     <td>{(getWasteData as any).namaPengguna || 'N/A'}</td>
                                     <td>{(getWasteData as any).emailPengguna || 'N/A'}</td>
@@ -115,11 +130,67 @@ function Tracking() {
                           </table>
                         </div>
                       </form>
+                  
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12 grid-margin stretch-card">
+                  <div className="card">
+                    <div className="card-body">
+                      <p className="card-title">Waste List</p>
+                      <div className="row">
+                        <div className="col-12">
+                          <div className="table-responsive">
+                            <table
+                              id="table-id"
+                              className="display expandable-table"
+                              style={{ width: "100%" }}
+                            >
+                              <thead>
+                                <tr>
+                                  <th>User ID</th>
+                                  <th>Name</th>
+                                  <th>Email</th>
+                                  <th>Waste ID</th>
+                                  <th>Waste Type</th>
+                                  <th>Waste Weight</th>
+                                  <th>Date</th>
+                                  <th>Droppoint</th>
+                                  <th />
+                                </tr>
+                              </thead>
+                              <tbody>
+                            {getWasteDataList &&
+                              getWasteDataList.map((data, index) => (
+                                <tr key={index}>
+                                  <td>{data.userAddress || 'N/A'}</td>
+                                  <td>{data.namaPengguna || 'N/A'}</td>
+                                  <td>{data.emailPengguna || 'N/A'}</td>
+                                  <td>{data.idSampah.toString() || 'N/A'}</td>
+                                  <td>{data.jenisSampah || 'N/A'}</td>
+                                  <td>{data.berat.toString() || 'N/A'}</td>
+                                  <td>
+                                    {data.waktu.toString() &&
+                                      new Date(
+                                        Number(data.waktu.toString()) * 1000
+                                      ).toLocaleString()}
+                                  </td>
+                                  <td>{data.dropPoints.toString() || 'N/A'}</td>
+                                </tr>
+                              ))}
+                          </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
             <Footer />
           </div>
         </div>
