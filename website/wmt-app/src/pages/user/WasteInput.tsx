@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 
 import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi";
 import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
+import { useNavigate } from "react-router-dom";
 
 function WasteInput() {
   const [userName, setuserName] = useState("");
@@ -34,9 +35,15 @@ function WasteInput() {
     setDropPoint(event.target.value);
   };
 
-  const { address } = useAccount();
-
-  const contractDropPoinT = "0x097ecb3C88e5cD27033a816683c28d779a1f7693";
+  const contractDropPoinT = "0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6";
+  const { isDisconnected } = useAccount();
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if (isDisconnected === true) {
+      navigate('/alert');
+    }
+  }, [isDisconnected, navigate]);
 
   const { config: configWasteInput } = usePrepareContractWrite({
     address: contractDropPoinT,
@@ -65,7 +72,7 @@ function WasteInput() {
       await writeWasteInput?.();
 
       // Jika berhasil, Anda dapat memperbarui notifikasi jika diperlukan
-      toast.success("Submmit Success, Wait for Wallet Notification!", {
+      toast.success("Submit Success, Wait for Wallet Notification!", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } catch (error) {
@@ -129,6 +136,7 @@ function WasteInput() {
                             className="form-control"
                             id="exampleSelectWasteType"
                           >
+                            <option>- Select Waste Type -</option>
                             <option>Plastic</option>
                             <option>Electronic</option>
                             <option>Glass</option>
