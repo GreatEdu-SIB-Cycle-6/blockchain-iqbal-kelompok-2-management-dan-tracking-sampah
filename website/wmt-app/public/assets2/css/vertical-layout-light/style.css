@@ -26229,8 +26229,9 @@ body.avgrund-active {
   }
 }
 
+/* change color table */
 .expandable-table thead tr th {
-  background: #4B49AC;
+  background: #248AFD;
   padding: 10px;
   color: #ffffff;
   font-size: 14px;
@@ -26348,6 +26349,31 @@ table.dataTable tbody td.select-checkbox:after {
   left: 10px;
 }
 
+/* forbidden */
+.forbidden-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #dbd7d7; /* Background color for forbidden page, you can change it */
+  color: #231f1f; /* Text color for forbidden message, you can change it */
+}
+/* back button forbidden */
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  text-decoration: none;
+  background-color: #d51a1a; 
+  color: #fff; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #841010; 
+}
 /* Datepicker */
 .datepicker.datepicker-dropdown,
 .datepicker.datepicker-inline {
@@ -28592,7 +28618,7 @@ div.tagsinput span.tag a {
 
 /* change color side bar */
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #5aac49;
+  background: #248AFD;
   position: relative;
 }
 
@@ -28624,7 +28650,7 @@ div.tagsinput span.tag a {
 
 /* change color hover side bar */
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded="true"] {
-  background: #5aac49;
+  background: #248AFD;
   color: #fff;
 }
 
@@ -30545,13 +30571,14 @@ div.tagsinput span.tag a {
   background: transparent;
 }
 
+/* change */
 #settings-trigger {
   position: fixed;
   bottom: 40px;
   right: 30px;
   height: 45px;
   width: 45px;
-  background: #4B49AC;
+  background: #248AFD;
   z-index: 99;
   display: -webkit-flex;
   display: flex;
