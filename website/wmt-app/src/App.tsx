@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { PengelolaanSampahPage } from './pages/PengelolaanSampah';
-import { WasteManagementPage } from './pages/WasteManagement';
 import Home from './pages/Home';
 import Dashboard from './pages/user/Dashboard';
 import WasteInput from './pages/user/WasteInput';
@@ -11,6 +9,9 @@ import AdminInput from './pages/pageAdmin/AdminInput';
 import AdminValidation from './pages/pageAdmin/AdminValidation';
 import AdminSendWaste from './pages/pageAdmin/AdminSendWaste';
 import AdminTracking from './pages/pageAdmin/AdminTracking';
+import AdminChange from './pages/pageAdmin/AdminChange';
+import ForbiddenPage from './pages/ForbiddenPage';
+import Alert from './pages/Alert';
 
 
 
@@ -29,8 +30,9 @@ function App() {
         <Route path="/admin-validation" element={<AdminValidation />} />
         <Route path="/admin-sendwaste" element={<AdminSendWaste />} />
         <Route path="/admin-tracking" element={<AdminTracking />} />
-        <Route path="/PengelolaanSampah" element={<PengelolaanSampahPage />} />
-        <Route path="/WasteManagement" element={<WasteManagementPage />} />
+        <Route path="/admin-change" element={<AdminChange />} />
+        <Route path="/forbidden" element={<ForbiddenPage />} />
+        <Route path="/alert" element={<Alert />} />
       </Routes>
     </BrowserRouter>
   );
