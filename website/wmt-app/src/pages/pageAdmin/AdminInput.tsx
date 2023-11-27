@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
-import ThemeSetting from "../components/ThemeSetting";
 import AdminSidebar from "../components/AdminSidebar";
 import Footer from "../components/Footer";
 import { useAccount, usePrepareContractWrite, useContractWrite, useContractRead } from "wagmi";
@@ -100,7 +99,6 @@ function WasteInput() {
       <div className="container-scroller">
         <Navbar />
         <div className="container-fluid page-body-wrapper">
-          <ThemeSetting />
           <AdminSidebar />
           <div className="main-panel">
             <div className="content-wrapper">

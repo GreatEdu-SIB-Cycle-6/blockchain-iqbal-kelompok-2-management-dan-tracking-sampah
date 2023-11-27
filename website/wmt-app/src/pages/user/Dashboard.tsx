@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import ThemeSetting from "../components/ThemeSetting";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useAccount, useContractRead } from "wagmi";
@@ -55,9 +54,7 @@ function Dashboard() {
       <div className="container-scroller">
         <Navbar />
         <div className="container-fluid page-body-wrapper">
-          <ThemeSetting />
           <Sidebar />
-
           <div className="main-panel">
             <div className="content-wrapper">
               <div className="row">

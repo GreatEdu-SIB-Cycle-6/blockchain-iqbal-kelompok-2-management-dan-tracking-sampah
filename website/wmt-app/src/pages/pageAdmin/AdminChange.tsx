@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
-import ThemeSetting from "../components/ThemeSetting";
 import AdminSidebar from "../components/AdminSidebar";
 import Footer from "../components/Footer";
 import {
@@ -75,7 +74,6 @@ function AdminChange() {
       <div className="container-scroller">
         <Navbar />
         <div className="container-fluid page-body-wrapper">
-          <ThemeSetting />
           <AdminSidebar />
           <div className="main-panel">
             <div className="content-wrapper">
@@ -85,7 +83,7 @@ function AdminChange() {
                     <div className="card-body">
                       <h4 className="card-title">Change Admin</h4>
                       <p className="card-description">
-                        Input the wallet address to change adminn
+                        Input the wallet address to change admin
                       </p>
                       <form className="forms-sample">
                      

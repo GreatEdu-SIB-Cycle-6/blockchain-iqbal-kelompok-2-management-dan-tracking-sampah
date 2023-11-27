@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../components/Navbar";
-import ThemeSetting from "../components/ThemeSetting";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
-
 import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi";
 import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
 import { useNavigate } from "react-router-dom";
@@ -89,7 +87,6 @@ function WasteInput() {
       <div className="container-scroller">
         <Navbar />
         <div className="container-fluid page-body-wrapper">
-          <ThemeSetting />
           <Sidebar />
           <div className="main-panel">
             <div className="content-wrapper">

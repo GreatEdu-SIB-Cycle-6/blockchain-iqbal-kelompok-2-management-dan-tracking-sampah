@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import ThemeSetting from "../components/ThemeSetting";
 import AdminSidebar from "../components/AdminSidebar";
 import Footer from "../components/Footer";
 import { useAccount, useContractRead } from "wagmi";
@@ -69,9 +68,7 @@ function Dashboard() {
       <div className="container-scroller">
         <Navbar />
         <div className="container-fluid page-body-wrapper">
-          <ThemeSetting />
           <AdminSidebar />
-
           <div className="main-panel">
             <div className="content-wrapper">
               <div className="row">

@@ -9,8 +9,7 @@ function Footer() {
             Copyright © 2023. from WMT Project. All rights reserved.
           </span>
           <span className="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
-            Hand-crafted &amp; made with{" "}
-            <i className="ti-heart text-danger ml-1" />
+            Hand-crafted &amp; made with ❤️
           </span>
         </div>
       </footer>
