@@ -33,9 +33,6 @@ function Index() {
                     <a href="#gallery">Gallery</a>
                   </li>
                   <li>
-                    <a href="#team"> Team</a>
-                  </li>
-                  <li>
                     <a href="#contact" className="pr-0">
                       Contact
                     </a>
@@ -132,8 +129,8 @@ function Index() {
               <div className="row">
                 <div className="title-wls-text col-lg-6 col-md-6 txt-rightside clr-para">
                   <p className = "" >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
+                  WMT Project provides cutting-edge solutions in waste management and blockchain-based tracking.
+                  Our services include real-time waste monitoring, blockchain-based reporting, and seamless system integration.
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 ">
@@ -224,8 +221,8 @@ function Index() {
                 </div>
                 <div className="title-wls-text col-lg-6 col-md-6 ">
                   <p className = "" >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
+                  Explore the world of waste management through our visual showcase in Our Gallery.
+                  Witness inspirational images and innovative solutions we offer in waste management
                   </p>
                 </div>
               </div>
@@ -428,113 +425,6 @@ function Index() {
         </div>
         {/* //popup */}
         {/*//gallery */}
-        {/*price */}
-        {/* <section className="price py-lg-4 py-md-3 py-sm-3 py-3" id="price">
-          <div className="container py-lg-5 py-md-4 py-sm-4 py-3">
-            <div className="title-tag mb-lg-5 mb-md-4 mb-sm-4 mb-3 pb-lg-3 pb-md-2">
-              <div className="row">
-                <div className="col-lg-6 col-md-6 txt-rightside ">
-                  <h6 className="title-top-txt mb-2">Our Plans </h6>
-                  <h3 className="title clr">Our Prices</h3>
-                </div>
-                <div className="title-wls-text col-lg-6 col-md-6 clr-para">
-                  <p className = "" >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-3 col-md-6 col-sm-6 pricing-grid">
-                <div className="w3ls-bottom grid-two">
-                  <div className="table-txt-grid">
-                    <h4>GOLDEN</h4>
-                  </div>
-                  <div className="my-lg-4 my-3 price-w3layouts-table">
-                    <h4>
-                      {" "}
-                      <span className="sup">$</span>
-                      <span className="number-price">50</span> / month{" "}
-                    </h4>
-                  </div>
-                  <div className="price-list-txt">
-                    <ul className="count">
-                      <li>Lorem ipsum </li>
-                      <li>Dolor sit </li>
-                      <li>Consectetuer</li>
-                      <li>Adipiscing</li>
-                      <li>Lorem ipsum </li>
-                    </ul>
-                  </div>
-                  <div className="view-buttn mt-3">
-                    <a href="#contact" className=" scroll">
-                      Book Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 pricing-grid">
-                <div className="w3ls-bottom grid-two">
-                  <div className="table-txt-grid">
-                    <h4>PREMIUM</h4>
-                  </div>
-                  <div className="my-lg-4 my-3 price-w3layouts-table">
-                    <h4>
-                      {" "}
-                      <span className="sup">$</span>
-                      <span className="number-price">60</span> / month{" "}
-                    </h4>
-                  </div>
-                  <div className="price-list-txt">
-                    <ul className="count">
-                      <li>Lorem ipsum </li>
-                      <li>Dolor sit </li>
-                      <li>Consectetuer</li>
-                      <li>Adipiscing</li>
-                      <li>Lorem ipsum </li>
-                    </ul>
-                  </div>
-                  <div className="view-buttn mt-3">
-                    <a href="#contact" className=" scroll">
-                      Book Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-sm-6 pricing-grid">
-                <div className="w3ls-bottom grid-two">
-                  <div className="table-txt-grid">
-                    <h4>PLATINUM</h4>
-                  </div>
-                  <div className="my-lg-4 my-3 price-w3layouts-table">
-                    <h4>
-                      {" "}
-                      <span className="sup">$</span>
-                      <span className="number-price">70</span> / month{" "}
-                    </h4>
-                  </div>
-                  <div className="price-list-txt">
-                    <ul className="count">
-                      <li>Lorem ipsum </li>
-                      <li>Dolor sit </li>
-                      <li>Consectetuer</li>
-                      <li>Adipiscing</li>
-                      <li>Lorem ipsum </li>
-                    </ul>
-                  </div>
-                  <div className="view-buttn mt-3">
-                    <a href="#contact" className=" scroll">
-                      Book Now
-                    </a>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </section> */}
-        {/*//price*/}
         {/* clients */}
         <section className="clients py-lg-4 py-md-3 py-sm-3 py-3" id="clients">
           <div className="container py-lg-5 py-md-4 py-sm-4 py-3">
@@ -542,8 +432,8 @@ function Index() {
               <div className="row">
                 <div className="title-wls-text col-lg-6 col-md-6 txt-rightside">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
+                  Individuals and customers to share their experiences, reviews, and testimonials.
+                  Here, we celebrate the voices of the community by providing a space to share personal perspectives on.
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 ">
@@ -555,14 +445,13 @@ function Index() {
             <div className="row">
               <div className="col-lg-4 col-md-4 clients-txt">
                 <div className="client-txt-color">
-                  <img src="assets/images/c1.jpg" className="img-thumbnail" alt="" />
+                  <img src="assets/images/c4.jpg" className="img-thumbnail" alt="" />
                   <div className="client-txt-info mt-md-4 mt-3 mb-2">
-                    <h4> Ted Willson</h4>
+                    <h4> Alfi Fajri</h4>
                     <h6 className="mt-2"> Our Client</h6>
                     <p className="mt-sm-3 mt-2">
-                      Lorem ipsum dolor sit amet, eiusmod tempor incididunt ut
-                      labore et consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore
+                    "GreenTech Solutions, our first partner, is a leading company in the implementation of green technology.
+                    Our collaboration helps them achieve their sustainability goals by maximizing efficiency and transparency in waste management"
                     </p>
                   </div>
                 </div>
@@ -571,12 +460,11 @@ function Index() {
                 <div className="client-txt-color">
                   <img src="assets/images/c2.jpg" className="img-thumbnail" alt="" />
                   <div className="client-txt-info mt-md-4 mt-3 mb-2">
-                    <h4>Orcand Keen</h4>
+                    <h4>Ridho Fauzi</h4>
                     <h6 className="mt-2"> Our Client</h6>
                     <p className="mt-sm-3 mt-2 ">
-                      Lorem ipsum dolor sit amet, eiusmod tempor incididunt ut
-                      labore et consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore
+                    "EcoCraft Industries, our dedicated client, is a pioneer in the production of environmentally friendly goods.
+                    With WMT Project solutions, they can track their waste footprint more effectively, ensuring that every step in production supports sustainability"
                     </p>
                   </div>
                 </div>
@@ -585,12 +473,11 @@ function Index() {
                 <div className="client-txt-color">
                   <img src="assets/images/c3.jpg" className="img-thumbnail " alt="" />
                   <div className="client-txt-info mt-md-4 mt-3 mb-2">
-                    <h4> Jack Killy</h4>
+                    <h4> Ahmad Wildan</h4>
                     <h6 className="mt-2"> Our Client</h6>
                     <p className="mt-sm-3 mt-2">
-                      Lorem ipsum dolor sit amet, eiusmod tempor incididunt ut
-                      labore et consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore
+                    "The Urban Renewal Authority entrusts us to provide reliable waste management solutions in their city development projects.
+                    With a blockchain-based approach, we assist them in achieving the highest sustainability standards in their urban transformation"
                     </p>
                   </div>
                 </div>
@@ -618,166 +505,15 @@ function Index() {
               </div>
             </div>
             <div className="video-txt-para text-center mt-lg-5 mt-md-4 mt-3">
-              <h4 className="mb-2">Save Forest And Nature</h4>
+              <h4 className="mb-2">Waste Management and Tracking Project</h4>
               <p>
-                Lorem ipsum dolor sit amet, eiusmod tempor incididunt ut labore
-                et consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore{" "}
+              An innovative platform focused on waste management and tracking powered by blockchain technology. We aim to revolutionize waste management with a transparent and secure approach.
+              Utilizing blockchain technology, we provide a trustworthy solution for efficiently managing, tracking, and reporting waste data.{" "}
               </p>
             </div>
           </div>
         </section>
         {/*//video*/}
-        {/*team*/}
-        <section className="team py-lg-4 py-md-3 py-sm-3 py-3" id="team">
-          <div className="container py-lg-5 py-md-4 py-sm-4 py-3">
-            <div className="title-tag mb-lg-5 mb-md-4 mb-sm-4 mb-3 pb-lg-3 pb-md-2">
-              <div className="row">
-                <div className="title-wls-text col-lg-6 col-md-6 txt-rightside">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
-                  </p>
-                </div>
-                <div className="col-lg-6 col-md-6 ">
-                  <h6 className="title-top-txt mb-2">We Are Best</h6>
-                  <h3 className="title">Our Volunteer</h3>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-3 col-md-6 col-sm-6 team-grid-list ">
-                {/* team-img */}
-                <div className="team-block">
-                  <div className="team-img">
-                    <img src="assets/images/t1.jpg" alt="" className="image-fluid" />
-                    <div className="text text-center  mt-lg-4 mt-3">
-                      <h4 className="mb-2 ">Lily will</h4>
-                      <p className="team-meta ">Volunteer</p>
-                      <div className="icons-client mt-3">
-                        <ul>
-                          <li>
-                            <a href="https://www.facebook.com/">
-                              <span className="fa fa-facebook" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://twitter.com/">
-                              <span className="fa fa-twitter" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://github.com/">
-                              <span className="fa fa-rss" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* /.team-img */}
-              <div className="col-lg-3 col-md-6 col-sm-6 team-grid-list ">
-                {/* team-img */}
-                <div className="team-block">
-                  <div className="team-img">
-                    <img src="assets/images/t2.jpg" alt="" className="image-fluid" />
-                    <div className="text text-center  mt-lg-4 mt-3">
-                      <h4 className="mb-2 ">Rose Hunt</h4>
-                      <p className="team-meta ">Volunteer</p>
-                      <div className="icons-client mt-3">
-                        <ul>
-                          <li>
-                            <a href="https://www.facebook.com/">
-                              <span className="fa fa-facebook" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://twitter.com/">
-                              <span className="fa fa-twitter" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://github.com/">
-                              <span className="fa fa-rss" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* /.team-img */}
-              <div className="col-lg-3 col-md-6 col-sm-6 team-grid-list ">
-                {/* team-img */}
-                <div className="team-block">
-                  <div className="team-img">
-                    <img src="assets/images/t3.jpg" alt="" className="image-fluid" />
-                    <div className="text text-center  mt-lg-4 mt-3">
-                      <h4 className="mb-2 ">Jill Kent</h4>
-                      <p className="team-meta ">Volunteer</p>
-                      <div className="icons-client mt-3">
-                        <ul>
-                          <li>
-                            <a href="https://www.facebook.com/">
-                              <span className="fa fa-facebook" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://twitter.com/">
-                              <span className="fa fa-twitter" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://github.com/">
-                              <span className="fa fa-rss" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* /.team-img */}
-              <div className="col-lg-3 col-md-6 col-sm-6 team-grid-list ">
-                {/* team-img */}
-                <div className="team-block">
-                  <div className="team-img">
-                    <img src="assets/images/t4.jpg" alt="" className="image-fluid" />
-                    <div className="text text-center  mt-lg-4 mt-3">
-                      <h4 className="mb-2 ">Mart kelly</h4>
-                      <p className="team-meta ">Volunteer</p>
-                      <div className="icons-client mt-3">
-                        <ul>
-                          <li>
-                            <a href="https://www.facebook.com/">
-                              <span className="fa fa-facebook" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://twitter.com/">
-                              <span className="fa fa-twitter" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://github.com/">
-                              <span className="fa fa-rss" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/*//team*/}
-       
         {/* contact */}
         <section className="contact py-lg-4 py-md-3 py-sm-3 py-3" id="contact">
           <div className="container py-lg-5 py-md-4 py-sm-4 py-3">
@@ -785,8 +521,8 @@ function Index() {
               <div className="row">
                 <div className="title-wls-text col-lg-6 col-md-6 txt-rightside">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore
+                  Need more information or want to discuss your waste management project? Contact us through the Contact Us menu.
+                  Our dedicated team is ready to assist you in finding the best solutions for waste management and blockchain-based tracking.
                   </p>
                 </div>
                 <div className="col-lg-6 col-md-6 ">
@@ -846,7 +582,7 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Address</h6>
-                      {/* <p>South Brisbane,Old 4101 Australia</p> */}
+                      <p>South Serpong, South Tangerang, Indonesia</p>
                     </div>
                   </div>
                   <div className="row address-contact-form mt-lg-4 mt-3">
@@ -857,8 +593,8 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Phone</h6>
-                      {/* <p>+ 1 (234) 567 8901</p>
-                      <p>+ 1 (000) 555 9901</p> */}
+                      <p>+62-899-7172-8380</p>
+                      <p>+62-909-7034-9083</p>
                     </div>
                   </div>
                   <div className="row address-contact-form mt-lg-4 mt-3">
@@ -869,12 +605,12 @@ function Index() {
                     </div>
                     <div className=" footer-contact-list col-lg-9 col-md-8 col-sm-8">
                       <h6 className="mb-3">Email</h6>
-                      {/* <p>
-                        <a href="mailto:info@example.com">info@example.com</a>
+                      <p>
+                        <a href="mailto:blackrat872@gmail.com">wmtproject@gmail.com</a>
                       </p>
                       <p>
-                        <a href="mailto:info@example.com">info2@example.com</a>
-                      </p> */}
+                        <a href="mailto:blackrat872@gmail.com">wmtproject.office@gmail.com</a>
+                      </p>
                     </div>
                   </div>
                 </div>
