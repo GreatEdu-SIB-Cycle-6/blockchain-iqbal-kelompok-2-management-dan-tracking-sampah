@@ -170,17 +170,80 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "dataPenampungan",
+    "inputs": [],
+    "name": "getAllDataPenampungan",
     "outputs": [
-      { "internalType": "address", "name": "userAddress", "type": "address" },
-      { "internalType": "string", "name": "namaPengguna", "type": "string" },
-      { "internalType": "string", "name": "emailPengguna", "type": "string" },
-      { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
-      { "internalType": "string", "name": "jenisSampah", "type": "string" },
-      { "internalType": "uint256", "name": "berat", "type": "uint256" },
-      { "internalType": "uint256", "name": "waktu", "type": "uint256" },
-      { "internalType": "bool", "name": "sudahDivalidasi", "type": "bool" }
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "userAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "namaPengguna",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "emailPengguna",
+            "type": "string"
+          },
+          { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
+          { "internalType": "string", "name": "jenisSampah", "type": "string" },
+          { "internalType": "uint256", "name": "berat", "type": "uint256" },
+          { "internalType": "uint256", "name": "waktu", "type": "uint256" },
+          {
+            "internalType": "uint256[]",
+            "name": "dropPoints",
+            "type": "uint256[]"
+          },
+          { "internalType": "bool", "name": "sudahDivalidasi", "type": "bool" }
+        ],
+        "internalType": "struct DropPointT.DataPenampungan[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllSampahList",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "userAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "namaPengguna",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "emailPengguna",
+            "type": "string"
+          },
+          { "internalType": "uint256", "name": "idSampah", "type": "uint256" },
+          { "internalType": "string", "name": "jenisSampah", "type": "string" },
+          { "internalType": "uint256", "name": "berat", "type": "uint256" },
+          { "internalType": "uint256", "name": "waktu", "type": "uint256" },
+          {
+            "internalType": "uint256[]",
+            "name": "dropPoints",
+            "type": "uint256[]"
+          }
+        ],
+        "internalType": "struct DropPointT.DataSampah[]",
+        "name": "",
+        "type": "tuple[]"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
