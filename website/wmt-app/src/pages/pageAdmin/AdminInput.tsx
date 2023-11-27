@@ -5,11 +5,33 @@ import Navbar from "../components/Navbar";
 import ThemeSetting from "../components/ThemeSetting";
 import AdminSidebar from "../components/AdminSidebar";
 import Footer from "../components/Footer";
-
-import { useAccount, usePrepareContractWrite, useContractWrite } from "wagmi";
+import { useAccount, usePrepareContractWrite, useContractWrite, useContractRead } from "wagmi";
 import DropPoinTAbi from "../../assets/DropPoinTAbi.json";
+import { useNavigate } from "react-router-dom";
 
 function WasteInput() {
+  const contractDropPoinT = "0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6";
+  const navigate = useNavigate();
+  const { address, isDisconnected } = useAccount();
+  const { data: admin } = useContractRead({
+    address: contractDropPoinT,
+    abi: DropPoinTAbi as any,
+    functionName: "owner",
+  });
+  console.log("admin:", admin);
+
+  useEffect(() => {
+    if (isDisconnected === true) {
+      navigate('/alert');
+    }
+  }, [isDisconnected, navigate]);
+
+  useEffect(() => {
+    if (address !== admin) {
+      navigate('/forbidden');
+    }
+  }, [address, admin, navigate]);
+  
   const [userName, setuserName] = useState("");
   const handleuserName = (event: any) => setuserName(event.target.value);
 
@@ -33,10 +55,6 @@ function WasteInput() {
   const handleDropPoint = (event: any) => {
     setDropPoint(event.target.value);
   };
-
-  const { address } = useAccount();
-
-  const contractDropPoinT = "0x097ecb3C88e5cD27033a816683c28d779a1f7693";
 
   const { config: configWasteInput } = usePrepareContractWrite({
     address: contractDropPoinT,
@@ -65,7 +83,7 @@ function WasteInput() {
       await writeWasteInput?.();
 
       // Jika berhasil, Anda dapat memperbarui notifikasi jika diperlukan
-      toast.success("Submmit Success, Wait for Wallet Notification!", {
+      toast.success("Submit Success, Wait for Wallet Notification!", {
         position: toast.POSITION.TOP_RIGHT,
       });
     } catch (error) {
@@ -129,6 +147,7 @@ function WasteInput() {
                             className="form-control"
                             id="exampleSelectWasteType"
                           >
+                            <option>- Select Waste Type -</option>
                             <option>Plastic</option>
                             <option>Electronic</option>
                             <option>Glass</option>
