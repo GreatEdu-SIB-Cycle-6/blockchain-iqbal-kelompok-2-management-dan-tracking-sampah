@@ -16,7 +16,7 @@ Deploy Contract Ke LocalHost/Hardhat
 
 Jika ingin test maka tinggal buka terminal baru, biarkan yang lama tetap berjalan dan jalankan script berikut
 
-#yarn test
+5. yarn test
 
 ==================================
 Deploy Contarct Ke Bsc Testnet
