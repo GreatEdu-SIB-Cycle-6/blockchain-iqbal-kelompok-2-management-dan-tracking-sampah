@@ -2,7 +2,7 @@
 Management dan Tracking Sampah berbasis Blockchain
 
 WMT PROJECT
-
+===========================
 
 Cara SetUp Smart Contract
 ==================================
@@ -32,7 +32,7 @@ Jika ingin ingin verify bisa tulis
 
 tapi harus ganti address contract pada package.json di bagian script
 
-===========================
+
 
 
 
