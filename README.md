@@ -9,7 +9,7 @@ Cara SetUp Smart Contract
 ==================================
 Deploy Contract Ke LocalHost/Hardhat
 
-1. cd contract
+#cd contract
 2. yarn clean 
 3. yarn deploy
 4. yarn simulate 
