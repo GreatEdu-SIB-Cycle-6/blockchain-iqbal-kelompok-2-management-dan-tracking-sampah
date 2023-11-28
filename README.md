@@ -18,7 +18,7 @@ Jika ingin test maka tinggal buka terminal baru, biarkan yang lama tetap berjala
 
 5. yarn test
 
-==================================
+
 Deploy Contarct Ke Bsc Testnet
 ==================================
 
