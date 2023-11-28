@@ -2,17 +2,17 @@
 Management dan Tracking Sampah berbasis Blockchain
 
 WMT PROJECT
-==================================
-SetUp Project
-==================================
+
+
 Cara SetUp Smart Contract
 ==================================
 Deploy Contract Ke LocalHost/Hardhat
+==================================
 
-#cd contract
-#yarn clean 
-#yarn deploy
-#yarn simulate 
+1. cd contract
+2. yarn clean 
+3. yarn deploy
+4. yarn simulate 
 
 Jika ingin test maka tinggal buka terminal baru, biarkan yang lama tetap berjalan dan jalankan script berikut
 
@@ -20,6 +20,7 @@ Jika ingin test maka tinggal buka terminal baru, biarkan yang lama tetap berjala
 
 ==================================
 Deploy Contarct Ke Bsc Testnet
+==================================
 
 1. cd contract
 2. yarn clean 
