@@ -1,6 +1,18 @@
 # blockchain-iqbal-kelompok-2-management-dan-tracking-sampah
 Management dan Tracking Sampah berbasis Blockchain
 
+/*
+  = WMT Project =
+  - Developer By - 
+- Lefrand Bima Dzaki.
+- Rifqi Cipto Laksono.
+- Sugeng Dwi Budi Priantoro. 
+- FENTI SEPTRI.
+
+- GREATEDU - BLOCKCHAIN - 2023 - MSIB 5.
+*/
+
+
 WMT PROJECT
 ===========================
 
