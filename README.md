@@ -33,6 +33,15 @@ Jika ingin ingin verify bisa tulis
 tapi harus ganti address contract pada package.json di bagian script
 
 
+Address Contract
+===================================
+Address Contract : 0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6
+
+ALternative Link : https://testnet.bscscan.com/address/0xfb33CBBe4ea51F3e35EbA76612Ab487C257193a6#code
+
+Link Hosting Front End : https://wmtprojects.netlify.app/
+
+
 
 
 
